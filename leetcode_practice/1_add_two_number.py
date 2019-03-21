@@ -1,4 +1,9 @@
 class Solution(object):
+    """
+    depend on system function enumerate to iterate list to get index and value
+    take advantage of dictionary storage structure, use index as a unique key and num as value.
+    do a loop for this dictionary and get key
+    """
     def twoSum(self, nums, target):
         map = {}
         for index, num in enumerate(nums):
