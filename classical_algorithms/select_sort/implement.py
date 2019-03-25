@@ -3,6 +3,8 @@ def select_sort(alist):
     select sort thinking:
         compare element and find the min index, if element less than min, change their position.
     """
+    if len(alist) == 0:
+        return
     for i in range(1, len(alist)):
         min_index = i - 1
         for j in range(i, len(alist)):
