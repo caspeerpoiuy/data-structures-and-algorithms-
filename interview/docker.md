@@ -1,4 +1,4 @@
-<H3>**Docker Image Command**
+<H3>Docker Image Command
 
 	docker image pull               	pull a image from docker hub
 	docker image build                      build an image from docker file
@@ -14,26 +14,58 @@
 	docker image tag                        Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
 
 
-	
-<H3>**How to create a image???:**
+<H3>Docker Container Command
+
+	docker container attach                 Attach local standard input, output, and error streams to a running container
+	docker container commit                 Create a new image from a container's changes
+	docker container cp                     Copy files/folders between a container and the local filesystem
+	docker container create                 Create a new container
+	docker container diff                   Inspect changes to files or directories on a container's filesystem
+	docker container exec                   Run a command in a running container
+	docker container export                 Export a container's filesystem as a tar archive
+	docker container inspect                Display detailed information on one or more containers
+	docker container kill                   Kill one or more running containers
+	docker container logs                   Fetch the logs of a container
+	docker container ls                     List containers
+	docker container pause                  Pause all processes within one or more containers
+	docker container port                   List port mappings or a specific mapping for the container
+	docker container prune                  Remove all stopped containers
+	docker container rename                 Rename a container
+	docker container restart                Restart one or more containers
+	docker container rm                     Remove one or more containers
+	docker container run                    Run a command in a new container
+	docker container start                  Start one or more stopped containers
+	docker container stats                  Display a live stream of container(s) resource usage statistics
+	docker container stop                   Stop one or more running containers
+	docker container top                    Display the running processes of a container
+	docker container unpause                Unpause all processes within one or more containers
+	docker container update                 Update configuration of one or more containers
+	docker container wait                   Block until one or more containers stop, then print their exit codes
+
+
+<H3>How to create a image:
 
 	1.docker commit		base on exist container to create
 	2.docker build		base on dockerfile to create
 	3.docker import		base on local template import
 
-<H3>**What is the difference between  container and image：**
+
+<H3>What is the difference between  container and image：
 
 	容器是镜像的一个运行实例，镜像是静态的只读文件，而容器带有运行时需要的可写文件层，同时，容器中的应用进程处于运行状态。
 
-<H3>**How to create a container：**
+
+<H3>How to create a container
 
 	docker [container] create
 	
-<H3>**How to start a container：**
+	
+<H3>How to start a container:
 
 	docker [container] start
 
-<H3>**create and start a container：**
+
+<H3>create and start a container：
 
 	docker [container] run;	
 	docker run = docker create + docker start
@@ -66,8 +98,160 @@
 		127：容器内命令无法找到
 
 
-
-<H3>**docker attach 和 docker exec**
+<H3>docker attach 和 docker exec:
 
 	docker attach是进入到程序内pid为1的进程，即主进程
 	docker exec [container-version] Command 	执行命令到容器内，不是pid为1的主进程``
+	
+
+<H3>docker file
+<table>
+	<tr>
+		<td>
+			command
+		</td>
+		<td>
+			description
+		</td>
+	</tr>
+	<tr>
+		<td>
+			ARG
+		</td>
+		<td>
+			定义创建镜像过程中使用的变量
+		</td>
+	</tr>
+	<tr>
+		<td>
+			FROM
+		</td>
+		<td>
+			指定所创建的镜像的基础镜像
+		</td>
+	</tr>
+	<tr>
+		<td>
+			LABEL
+		</td>
+		<td>
+			为生成的镜像添加元数据标签信息
+		</td>
+	</tr>
+	<tr>
+		<td>
+			EXPOSE
+		</td>
+		<td>
+			声明镜像内服务监听的端口
+		</td>
+	</tr>
+	<tr>
+		<td>
+			ENV
+		</td>
+		<td>
+			指定环境变量
+		</td>
+	</tr>
+	<tr>
+		<td>
+			ENTRYPOINT
+		</td>
+		<td>
+			指定镜像的默认入口命令
+		</td>
+	</tr>
+	<tr>
+		<td>
+			VOLUME
+		</td>
+		<td>
+			创建一个数据卷挂载点
+		</td>
+	</tr>
+	<tr>
+		<td>
+			USER
+		</td>
+		<td>
+			指定运行容器时的用户名或UID
+		</td>
+	</tr>
+	<tr>
+		<td>
+			WORKDIR
+		</td>
+		<td>
+			配置工作目录
+		</td>
+	</tr>
+	<tr>
+		<td>
+			ONBUILD
+		</td>
+		<td>
+			创建子镜像时指定自动执行的操作指令
+		</td>
+	</tr>
+		<tr>
+		<td>
+			STOPSIGNAL
+		</td>
+		<td>
+			指定退出的信号值
+		</td>
+	</tr>
+		<tr>
+		<td>
+			HEALTHCHECK
+		</td>
+		<td>
+			配置所启动容器如何进行健康检查
+		</td>
+	</tr>
+		<tr>
+		<td>
+			SHELL
+		</td>
+		<td>
+			指定默认shell类型
+		</td>
+	</tr>
+	</tr>
+		<tr>
+		<td>
+			RUN
+		</td>
+		<td>
+			运行指定命令
+		</td>
+	</tr>
+	</tr>
+		<tr>
+		<td>
+			CMD
+		</td>
+		<td>
+			启动容器是指定默认执行的命令
+		</td>
+	</tr>
+	</tr>
+		<tr>
+		<td>
+			ADD
+		</td>
+		<td>
+			添加内容到镜像
+		</td>
+	</tr>
+	</tr>
+		<tr>
+		<td>
+			COPY
+		</td>
+		<td>
+			复制内容到镜像
+		</td>
+	</tr>
+</table>
