@@ -1,22 +1,42 @@
-Docker Image Command:
-	docker pull [image:version]		pull a image from docker hub
+<H3>**Docker Image Command**
 
-How to create a image???:
+	docker image pull               	pull a image from docker hub
+	docker image build                      build an image from docker file
+	docker image history                    show the history of an image 
+	docker image import                     display detailed of an image
+	docker image load                       load an image from a tar archive or STDIN
+	docker image ls                         list images
+	docker image prune                      remove unused images
+	docker image pull                       pull an image or a repository from a registry
+	docker image push                       push an image or a repository to a registry
+	docker image rm                         Remove one or more images
+	docker image save                       Save one or more images to a tar archive (streamed to STDOUT by default)
+	docker image tag                        Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+
+	
+<H3>**How to create a image???:**
+
 	1.docker commit		base on exist container to create
 	2.docker build		base on dockerfile to create
 	3.docker import		base on local template import
 
-What is the difference between  container and image：
+<H3>**What is the difference between  container and image：**
+
 	容器是镜像的一个运行实例，镜像是静态的只读文件，而容器带有运行时需要的可写文件层，同时，容器中的应用进程处于运行状态。
 
-How to create a container：
-	docker [container] create
+<H3>**How to create a container：**
 
-How to start a container：
+	docker [container] create
+	
+<H3>**How to start a container：**
+
 	docker [container] start
 
-create and start a container：
-	docker [container] run;		docker run = docker create + docker start
+<H3>**create and start a container：**
+
+	docker [container] run;	
+	docker run = docker create + docker start
 
 	docker run操作：
 		检查本地是否存在指定的镜像，不存在就从共有仓库下载；
@@ -47,6 +67,7 @@ create and start a container：
 
 
 
-***docker attach 和 docker exec***
-docker attach是进入到程序内pid为1的进程，即主进程
-docker exec [container-version] Command 	执行命令到容器内，不是pid为1的主进程
+<H3>**docker attach 和 docker exec**
+
+	docker attach是进入到程序内pid为1的进程，即主进程
+	docker exec [container-version] Command 	执行命令到容器内，不是pid为1的主进程``
