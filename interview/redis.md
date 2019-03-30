@@ -41,7 +41,7 @@
 	RDB:
 	rdb是redis database缩写，功能函数rdbSave（生成RDB文件）和rdbLoad（从文件加载内存）两个函数。
 
-
+	![Image text](https://raw.githubusercontent.com/caspeerpoiuy/data-structures-and-algorithms-/master/interview/image-folder/redis-rdb.png)
 	
 
 
