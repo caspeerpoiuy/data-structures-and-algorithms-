@@ -43,20 +43,33 @@
 
 ![Image text](https://raw.githubusercontent.com/caspeerpoiuy/data-structures-and-algorithms-/master/interview/image-folder/redis-rdb.png)
 	
+	AOF:
+	AOF是Append-only file缩写
+	每当执行服务器（定时）任务或者函数时flushAppendOnlyFile函数都会被调用，这个函数执行一下两个工作。
+	aof写入保存：
+		1).WRITE:根据条件，将aof_buf中的缓存写入到AOF文件。
+		2).SAVE:根据条件，调用fsync或fdatasync函数，将AOF文件保存到磁盘中。
+![Image text](https://raw.githubusercontent.com/caspeerpoiuy/data-structures-and-algorithms-/master/interview/image-folder/redis-aof.png)
 
 
+	存储结构：内容是redis通讯协议（RESP）格式的命令文本存储。
+	
+	比较：
+	1.AOF文件比RDB更新频率高，优先使用AOF还原数据。
+	2.AOF比RDB更安全也更大。
+	3.RDB性能比AOF好。
+	4.如果两个都配了优先加载AOF。
+	
+	redis持久化存储更多知识：https://www.cnblogs.com/jasontec/p/9846725.html
 
 
+<h3>3.什么时RESP协议？有什么特点？
+	
+	RESP是redis客户端和服务端之间使用的一种通讯协议。
+	RESP的特点：实现简单、快速解析、可读性好。
 
 
-
-
-
-
-
-
-
-<H3>2.redis中list底层实现有哪几种？有什么区别？
+<H3>4.redis中list底层实现有哪几种？有什么区别？
 
 	列表对象的编码可以是ziplist或者linkedlist
 	ziplist是一种压缩链表，它的好处是更能节省内存空间，因为它所存储的内容都是在连续的内存区域当中的。
