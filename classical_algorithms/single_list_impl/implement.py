@@ -38,9 +38,7 @@ class SingleList(object):
         current_num.next = node
 
     def insert(self, index, item):
-        if index > self.length():
-            raise Exception
-        elif index < 0:
+        if index > self.length() or index < 0:
             raise Exception
         elif index == self.length():
             self.extend(item)
@@ -72,14 +70,24 @@ class SingleList(object):
             preview_num = current_num
             current_num = current_num.next
 
+    def search(self, item):
+        current_num = self.head
+        while current_num is not None:
+            if item == current_num.item:
+                return True
+            current_num = current_num.next
+        return False
+
 
 if __name__ == '__main__':
     single_list = SingleList()
     single_list.add(3)
     single_list.add(2)
     single_list.add(1)
+    single_list.extend(4)
     single_list.insert(1, 5)
     single_list.loop()
     single_list.remove(5)
     print("-"*20)
     single_list.loop()
+    single_list.search(4)
