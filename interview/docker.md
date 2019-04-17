@@ -306,10 +306,37 @@
 	
 	8.碰到网络问题，无法pull镜像，命令行指定http_proxy无效，怎么办？
 	答：在docker配置文件中添加export http_proxy="http://<PROXY_HOST>:<PROXY_PORT>"，之后重启docker服务即可。
+	
+	
+<H3>容器相关
+	
+	1.容器退出后，通过docker ps命令查看不到，数据会丢失吗？
+	答：容器退出后会处于终止（exited）状态，此时可以通过docker ps -a查看。其中的数据也不会丢失，还可以通过docker [container] start
+	命令来启动它。只有删除掉容器才会清除所有数据。
+	
+	2.如何停止所有正在运行的容器？
+	答：可以使用docker [container] stop ${docker ps -q}命令。
+	
+	3.如何批量清理所有的容器，包括处于运行状态和停止状态的？
+	答：可以使用docker [container] rm -f ${docker ps -qa}命令。			
+	
+	4.如何获取某个容器的PID信息？
+	答：可以使用docker [container] inspect --format '{{ .State.Pid }}' <CONTAINER ID OR NAME> 命令。
+	
+	5.如何获取某个容器的IP地址？
+	答：可以使用docker [container] inspect --format '{{ .NetworkSettings.IPAddress }}' <CONTAINER ID OR NAME> 命令。
+	
+	6.如何临时退出一个正在交互的容器的终端，而不终止它？
+	答：按CTRL+P + CTRL+Q，如果按CTRL+C往往会让容器内应用进程终止，进而会终止容器。
 			
-			
-			
-			
+	7.可以在一个容器中同事运行多个应用进程吗？
+	答：一般不推荐在同一个容器内运行多个应用进程。如果有类似需求，可以通过一些额外的进程管理机制，比如supervisord，来管理所运行的进程。
+	
+	8.如何控制容器占用系统资源(CPU、内存)的份额？
+	答：在使用docker [container]	create命令创建容器或使用docker [container] run创建并启动容器的时候，可以使用-c|-cpu-shares[=0]	
+	参数来调整使用cpu的权重；使用-m|-memory[=MEMORY]参数来调整容器使用内存的大小。
+	
+	
 			
 			
 			
