@@ -1,8 +1,8 @@
-def insert_sort(alist):
-    pass
-
-
-if __name__ == '__main__':
-    li = [35, 66, 21, 77, 54, 22]
-    insert_sort(li)
-    print(li)
+import logging
+logging.basicConfig(format='%(asctime)s - %(pathname)s[line:%(lineno)d] - %(levelname)s: %(message)s',
+                    level=logging.DEBUG)
+logging.debug('debug 信息')
+logging.info('info 信息')
+logging.warning('warning 信息')
+logging.error('error_log 信息')
+logging.critical('critial 信息')

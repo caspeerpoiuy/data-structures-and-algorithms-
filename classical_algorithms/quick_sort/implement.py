@@ -1,29 +1,32 @@
-def quick_sort(alist, start, end):
-    if start >= end:
-        return
-    mid = alist[start]
-# low为序列左边的由左向右移动的游标
-    low = start
-# high为序列右边的由右向左移动的游标
-    high = end
-    while low < high:
-    # 如果low与high未重合，high指向的元素不⽐基准元素⼩，则high向左移动
-        while low < high and alist[high] >= mid:
-            high -= 1
-    # 将high指向的元素放到low的位置上
-        alist[low] = alist[high]
-# 如果low与high未重合，low指向的元素⽐基准元素⼩，则low向右移动
-        while low < high and alist[low] < mid:
-            low += 1
-# 将low指向的元素放到high的位置上
-        alist[high] = alist[low]
-# 退出循环后，low与high重合，此时所指位置为基准元素的正确位置
-# 将基准元素放到该位置
-        alist[low] = mid
-# 对基准元素左边的⼦序列进⾏快速排序
-    quick_sort(alist, start, low-1)
-# 对基准元素右边的⼦序列进⾏快速排序
-    quick_sort(alist, low+1, end)
-alist = [54,26,93,17,77,31,44,55,20]
-quick_sort(alist,0,len(alist)-1)
-print(alist)
+def QuickSort(myList,start,end):
+    #判断low是否小于high,如果为false,直接返回
+    if start < end:
+        i,j = start,end
+        #设置基准数
+        base = myList[i]
+
+        while i < j:
+            #如果列表后边的数,比基准数大或相等,则前移一位直到有比基准数小的数出现
+            while (i < j) and (myList[j] >= base):
+                j = j - 1
+
+            #如找到,则把第j个元素赋值给第个元素i,此时表中i,j个元素相等
+            myList[i] = myList[j]
+
+            #同样的方式比较前半区
+            while (i < j) and (myList[i] <= base):
+                i = i + 1
+            myList[j] = myList[i]
+        #做完第一轮比较之后,列表被分成了两个半区,并且i=j,需要将这个数设置回base
+        myList[i] = base
+
+        #递归前后半区
+        QuickSort(myList, start, i - 1)
+        QuickSort(myList, j + 1, end)
+    return myList
+
+
+myList = [49,38,65,97,76,13,27,49]
+print("Quick Sort: ")
+QuickSort(myList,0,len(myList)-1)
+print(myList)
